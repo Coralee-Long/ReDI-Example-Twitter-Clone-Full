@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 /* ----------------- THEMES SET-UP START ----------------- */
 
 /* Default Variables */
@@ -5,6 +9,7 @@
 	--bg-light: #ffffff;
 	--text-light: #000000;
 	--accent-color-light: #1da1f2;
+	--button-bg-grey: #828484;
 	--button-bg-light: #f2f2f2;
 	--button-hover-light: #e6e6e6;
 	--border-color-light: #ddd;
@@ -12,14 +17,15 @@
 	--placeholder-color-light: #aaa;
 	--profile-bg-light: #f9f9f9;
 
-	--bg-dark: #1a1a1a;
+	--bg-dark: #000000;
 	--text-dark: #e6e6e6;
 	--accent-color-dark: #1da1f2;
+	--button-bg-grey-dark: #828484;
 	--button-bg-dark: #2c2f33;
 	--button-hover-dark: #3a3d42;
-	--border-color-dark: rgba(130, 132, 132, 0.5);
+	--border-color-dark: rgba(97, 101, 105, 0.7);
 	--card-bg-dark: #2c2c2c;
-	--placeholder-color-dark: #555;
+	--placeholder-color-dark: rgb(113, 118, 123);
 	--profile-bg-dark: #1a1a1a;
 
 	--font-family: 'Arial', sans-serif;
@@ -31,6 +37,7 @@
 	--text-color: var(--text-light);
 	--accent-color: var(--accent-color-light);
 	--button-bg: var(--button-bg-light);
+	--button-bg-grey: var(--button-bg-grey-light);
 	--button-hover: var(--button-hover-light);
 	--border-color: var(--border-color-light);
 	--card-bg: var(--card-bg-light);
@@ -44,6 +51,7 @@
 	--text-color: var(--text-dark);
 	--accent-color: var(--accent-color-dark);
 	--button-bg: var(--button-bg-dark);
+	--button-bg-grey: var(--button-bg-grey-dark);
 	--button-hover: var(--button-hover-dark);
 	--border-color: var(--border-color-dark);
 	--card-bg: var(--card-bg-dark);
@@ -62,11 +70,13 @@
 	background-color: var(--bg-color);
 	color: var(--text-color);
 	font-family: var(--font-family);
-	border: 5px solid red; /* Temporary border for visibility */
+	min-width: 300px;
+	border: 5px solid lime;
 }
 
 /* Main layout for the app */
 .app-layout {
+	background-color: var(--bg-color);
 	display: flex;
 	flex-direction: row;
 	/* max-width: 1200px; */
@@ -81,31 +91,46 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: var(--card-bg);
 	padding: 0;
 	/* border: 3px solid lime; */
-	width: 70%;
+	width: 100%;
+	flex: 2;
+
+	@media (min-width: 1200px) {
+		flex: 3;
+	}
 }
 
 /* left sidebar */
 .sidebar {
-	width: 15%;
-	border-right: 1px solid grey;
+	min-width: 15%;
+	border-right: 1px solid var(--border-color);
+	flex: 1;
 
-	/* border: 3px solid yellow; */
+	@media (max-width: 800px) {
+		flex: 0.5;
+	}
+
+	@media (min-width: 1600px) {
+		flex: 2;
+	}
 }
 /* Placeholder styling for the right sidebar */
 .right-sidebar {
-	background-color: var(--card-bg);
 	padding: 20px;
 	color: var(--text-color);
 	text-align: center;
-	width: 15%;
-	border-left: 1px solid grey;
+	min-width: 15%;
+	border-left: 1px solid var(--border-color);
+	flex: 1;
+
+	@media (min-width: 1600px) {
+		flex: 2;
+	}
 }
 
 /* Responsive adjustments */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
 	/* Hide the right sidebar on smaller screens */
 	.right-sidebar {
 		display: none;
@@ -113,10 +138,6 @@
 
 	/* Adjust layout to take up full width */
 	.main-feed {
-		width: 85%; /* Adjusted width to accommodate the missing right sidebar */
-	}
-
-	.sidebar {
-		width: 15%; /* Ensure left sidebar keeps the same width */
+		max-width: 85%;
 	}
 }

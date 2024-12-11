@@ -22,6 +22,7 @@ const Sidebar = () => {
 							alt={`${link.label} icon`}
 							className='sidebar-icon'
 						/>
+						<p className="icon-labels">{link.label}</p>
 					</li>
 				))}
 			</ul>

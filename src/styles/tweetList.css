@@ -10,7 +10,6 @@
 }
 
 .tweet-list-item {
-	background-color: var(--card-bg);
 	padding: 15px;
 	display: flex;
 	flex-direction: column;
@@ -27,11 +26,6 @@
 	width: 40px;
 	height: 40px;
 	border-radius: 50%;
-	border: 1px solid var(--accent-color);
-}
-
-.tweet-content {
-	/* margin-bottom: 10px; */
 }
 
 .tweet-buttons-container button {

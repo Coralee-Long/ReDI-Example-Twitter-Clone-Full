@@ -1,9 +1,9 @@
 .header {
+	background-color: var(--bg-color);
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
 	padding: 10px 20px;
-	background-color: var(--card-bg);
 	border-bottom: 1px solid var(--border-color);
 }
 

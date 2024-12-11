@@ -3,7 +3,6 @@ import TweetInput from './components/TweetInput';
 import TweetList from './components/TweetList';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
-import Profile from './components/Profile';
 import fallbackData from './data/fallback_data.json';
 import { ThemeContext } from './Theme';
 import './App.css';
@@ -60,13 +59,13 @@ const App = () => {
 				<div className='app-layout'>
 					<Sidebar />
 					<main className='main-feed'>
-						<TweetInput addTweet={addTweet} />
+						<TweetInput
+							addTweet={addTweet}
+							user={user}
+						/>
 						<TweetList tweets={tweets} />
 					</main>
-					<aside className='right-sidebar'>
-						{/* Placeholder content */}
-						<p>Right Sidebar Placeholder</p>
-					</aside>
+					<aside className='right-sidebar'>{/* Placeholder content */}</aside>
 				</div>
 			</div>
 		</AppContext.Provider>

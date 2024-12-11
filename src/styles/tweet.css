@@ -4,8 +4,7 @@
 	align-items: flex-start;
 	gap: 15px;
 	padding: 15px;
-	background-color: var(--card-bg);
-	border: 1px solid var(--border-color);
+	width: 100%;
 }
 
 .tweet-list .tweet {

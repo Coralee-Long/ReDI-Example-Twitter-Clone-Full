@@ -1,37 +1,9 @@
-/* Header improvements */
-.header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 1rem;
-	background-color: var(--card-bg);
-	border-bottom: 1px solid var(--border-color);
-}
-
-.header-logo {
-	width: 40px;
-	height: auto;
-}
-
-.theme-toggle {
-	background-color: var(--button-bg);
-	color: var(--text-color);
-	border: none;
-	padding: 8px 12px;
-	border-radius: 5px;
-	cursor: pointer;
-}
-
-.theme-toggle:hover {
-	background-color: var(--button-hover);
-}
-
 /* Sidebar adjustments */
 .sidebar {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	background-color: var(--card-bg);
+	align-items: flex-end;
 	padding: 1rem;
 }
 
@@ -43,14 +15,23 @@
 
 .sidebar-link {
 	display: flex;
-	justify-content: center;
+	justify-content: flex-start;
 	align-items: center;
 	gap: 15px;
 	color: var(--text-color);
 	cursor: pointer;
-	height: 3rem;
-	width: 3rem;
+	/* border: 3px solid lime; */
+	min-height: 3rem;
+}
+
+.icon-labels {
+	display: block;
+	color: var(--text-color);
 	/* border: 3px solid red; */
+
+	@media (max-width: 800px) {
+		display: none;
+	}
 }
 
 .sidebar-link:hover {
@@ -69,7 +50,6 @@
 .sidebar-post {
 	margin-top: 20px;
 	padding: 10px 15px;
-	background-color: var(--accent-color);
 	color: var(--bg-color);
 	border: none;
 	border-radius: 20px;
@@ -83,16 +63,13 @@
 
 /* Feed section */
 .main-feed {
-	background-color: var(--card-bg);
 	padding: 20px;
 	border-radius: 10px;
 }
 
 /* Right sidebar placeholder */
 .right-sidebar {
-	background-color: var(--card-bg);
 	padding: 20px;
-	border-radius: 10px;
 	color: var(--text-color);
 	text-align: center;
 }

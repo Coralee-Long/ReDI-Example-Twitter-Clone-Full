@@ -1,20 +1,44 @@
 .tweet-input-container {
-	background-color: var(--card-bg);
+	background-color: var(--bg-color);
 	display: flex;
-	flex-direction: column;
-	gap: 10px;
-	margin-bottom: 20px;
+	flex-direction: row;
+	padding: 1rem;
 	width: 100%;
+	/* border: 3px solid red; */
+}
+
+.tweet-input-bottom-container {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	padding: 1rem;
+	/* border: 2px solid magenta; */
+}
+
+.profile-container {
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	min-width: 4rem;
+	height: 100%;
+	/* border: 3px solid lime; */
+}
+
+.profile-avatar {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
 }
 
 .tweet-input {
 	background-color: var(--bg-color);
 	color: var(--text-color);
-	border: 1px solid var(--border-color);
-	border-radius: 5px;
-	padding: 1rem;
 	resize: none;
 	min-height: 80px;
+	border: none;
+	width: 100%;
+	padding-top: 0.5rem;
+	/* border: 3px solid yellow; */
 }
 
 .tweet-input::placeholder {
@@ -24,11 +48,11 @@
 }
 
 .tweet-button {
-	background-color: var(--accent-color);
-	color: white;
+	background-color: var(--button-bg-grey);
+	color: var(--bg-color);
 	border: none;
 	padding: 10px 20px;
-	border-radius: 5px;
+	border-radius: 25px;
 	cursor: pointer;
 	align-self: flex-end;
 	font-weight: bold;

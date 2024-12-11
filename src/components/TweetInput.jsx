@@ -1,7 +1,8 @@
 import { useState } from 'react';
+import Profile from './Profile';
 import '../styles/TweetInput.css';
 
-const TweetInput = ({ addTweet }) => {
+const TweetInput = ({ addTweet, user }) => {
 	const [content, setContent] = useState('');
 
 	const handleSubmit = (e) => {
@@ -23,22 +24,28 @@ const TweetInput = ({ addTweet }) => {
 	};
 
 	return (
-		<form
-			onSubmit={handleSubmit}
-			className='tweet-input-container'>
-			<textarea
-				placeholder="What's happening?"
-				value={content}
-				onChange={(e) => setContent(e.target.value)}
-				className='tweet-input'
-			/>
-
-			<button
-				type='submit'
-				className='tweet-button'>
-				Tweet
-			</button>
-		</form>
+		<>
+			<form
+				onSubmit={handleSubmit}
+				className='tweet-input-container'>
+				<div className='tweet-input-avatar'>
+					<Profile user={user} />
+				</div>
+				<textarea
+					placeholder="What is happening?!"
+					value={content}
+					onChange={(e) => setContent(e.target.value)}
+					className='tweet-input'
+				/>
+			</form>
+			<div className='tweet-input-bottom-container'>
+				<button
+					type='submit'
+					className='tweet-button'>
+					Post
+				</button>
+			</div>
+		</>
 	);
 };
 
