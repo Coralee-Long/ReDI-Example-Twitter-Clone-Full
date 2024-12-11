@@ -1,13 +1,13 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useEffect, createContext, useContext } from 'react';
 import TweetInput from './components/TweetInput';
 import TweetList from './components/TweetList';
 import Sidebar from './components/Sidebar';
 import Header from './components/Header';
 import Profile from './components/Profile';
-
+import fallbackData from './data/fallback_data.json';
+import { ThemeContext } from './Theme';
 import './App.css';
 
-// Context is not really being used yet, but will be necessary if you do the Profile component etc
 export const AppContext = createContext();
 
 const App = () => {
@@ -16,11 +16,11 @@ const App = () => {
 		name: 'Joe Smith',
 		profilePicture: '/avatar.jpg',
 	});
-	const [theme, setTheme] = useState('light');
+	// const [theme, setTheme] = useState('light');
+
+	const { theme } = useContext(ThemeContext);
 
 	useEffect(() => {
-		// Fetch initial data from remote server, ex. https://jsonplaceholder.org/posts
-		// ...
 		fetchTweets();
 	}, []);
 
@@ -28,14 +28,24 @@ const App = () => {
 		try {
 			const response = await fetch(
 				'https://my.api.mockaroo.com/tweets?key=c8f44730'
-			); // find better mock data
+			);
+
+			if (!response.ok) {
+				console.log('api error, using fallback data');
+				setTweets(fallbackData);
+				return;
+			}
+
 			const data = await response.json();
 
-			console.log(data);
-
-			setTweets(data);
+			if (data && Array.isArray(data)) {
+				setTweets(data);
+			} else {
+				setTweets(fallbackData);
+			}
 		} catch (error) {
-			console.error('Error fetching tweets:', error);
+			console.log('api error, using fallback data');
+			setTweets(fallbackData);
 		}
 	};
 
@@ -44,18 +54,20 @@ const App = () => {
 	};
 
 	return (
-		<AppContext.Provider value={{ user, setUser, theme, setTheme }}>
-			<div className={`app ${theme}`}>
+		<AppContext.Provider value={{ user, setUser }}>
+			<div className={`App ${theme}`}>
 				<Header />
-				<Sidebar />
-				<main>
-					<Profile />
-					<TweetInput
-						addTweet={addTweet}
-						tweets={tweets}
-					/>
-					<TweetList tweets={tweets} />
-				</main>
+				<div className='app-layout'>
+					<Sidebar />
+					<main className='main-feed'>
+						<TweetInput addTweet={addTweet} />
+						<TweetList tweets={tweets} />
+					</main>
+					<aside className='right-sidebar'>
+						{/* Placeholder content */}
+						<p>Right Sidebar Placeholder</p>
+					</aside>
+				</div>
 			</div>
 		</AppContext.Provider>
 	);

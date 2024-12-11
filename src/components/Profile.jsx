@@ -1,16 +1,14 @@
-import { useContext } from 'react';
-import { AppContext } from '../App';
+import '../styles/Profile.css';
 
-const Profile = () => {
-	const { user } = useContext(AppContext);
-
+const Profile = ({ user }) => {
 	return (
 		<div className='profile'>
 			<img
 				src={user.profilePicture}
-				alt={user.name}
+				alt={`${user.name}'s avatar`}
+				className='profile-avatar'
 			/>
-			<h2>{user.name}</h2>
+			<h2 className='profile-name'>{user.name}</h2>
 		</div>
 	);
 };

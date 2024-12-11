@@ -1,0 +1,28 @@
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px 20px;
+	background-color: var(--card-bg);
+	border-bottom: 1px solid var(--border-color);
+}
+
+.header-logo {
+	width: 45px;
+	height: auto;
+	filter: invert(99%) sepia(14%) saturate(186%) hue-rotate(217deg)
+		brightness(115%) contrast(80%);
+}
+
+.theme-toggle {
+	background-color: var(--button-bg);
+	color: var(--text-color);
+	border: none;
+	padding: 8px 12px;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.theme-toggle:hover {
+	background-color: var(--button-hover);
+}

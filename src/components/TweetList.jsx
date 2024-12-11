@@ -1,11 +1,12 @@
 import Tweet from './Tweet';
+import '../styles/TweetList.css';
 
 const TweetList = ({ tweets }) => {
 	return (
-		<ul>
-			{tweets.map((tweet, index) => (
+		<ul className='tweet-list'>
+			{tweets.map((tweet) => (
 				<Tweet
-					key={index}
+					key={tweet.id}
 					tweet={tweet}
 				/>
 			))}

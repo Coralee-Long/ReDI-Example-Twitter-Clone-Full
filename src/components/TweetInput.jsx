@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import '../styles/TweetInput.css';
 
 const TweetInput = ({ addTweet }) => {
 	const [content, setContent] = useState('');
@@ -7,34 +8,37 @@ const TweetInput = ({ addTweet }) => {
 		e.preventDefault();
 		if (!content.trim()) return;
 
-		// Create a hardcoded tweet structure
 		const newTweet = {
-			id: Date.now(), // Unique ID
+			id: Date.now(),
 			content,
-			publishedAt: new Date().toISOString(), // Current date-time
-			name: 'Anne West', // Hardcoded user name
-			profilePicture: '/gen-avatar.png', // Hardcoded avatar image
+			publishedAt: new Date().toISOString(),
+			user: {
+				name: 'User',
+				profilePicture: '/gen-avatar.png',
+			},
 		};
 
-		// Pass the new tweet to the parent component
 		addTweet(newTweet);
-
-		// Clear the input field
 		setContent('');
 	};
 
 	return (
-		<div>
-			<form onSubmit={handleSubmit}>
-				<input
-					type='text'
-					value={content}
-					onChange={(e) => setContent(e.target.value)}
-					placeholder="What's happening?"
-				/>
-				<button type='submit'>Tweet</button>
-			</form>
-		</div>
+		<form
+			onSubmit={handleSubmit}
+			className='tweet-input-container'>
+			<textarea
+				placeholder="What's happening?"
+				value={content}
+				onChange={(e) => setContent(e.target.value)}
+				className='tweet-input'
+			/>
+
+			<button
+				type='submit'
+				className='tweet-button'>
+				Tweet
+			</button>
+		</form>
 	);
 };
 

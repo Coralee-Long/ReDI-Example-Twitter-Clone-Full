@@ -1,24 +1,24 @@
 import { useContext } from 'react';
-import { AppContext } from '../App';
+import { ThemeContext } from '../Theme.jsx';
+import '../styles/Header.css';
 
 const Header = () => {
-	const { theme, setTheme } = useContext(AppContext);
-
-	const toggleTheme = () => {
-		setTheme(theme === 'light' ? 'dark' : 'light');
-	};
-
+	const { theme, toggleTheme } = useContext(ThemeContext);
 	return (
-		<header>
-			<div className='header-main-container'>
-				<div className='header-title-container'>
-					<h1>Twitter Clone</h1>
-				</div>
-				<div className='theme-toggle'>
-					<button onClick={toggleTheme}>
-						Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
-					</button>
-				</div>
+		<header className='header'>
+			<div className='header-left'>
+				<img
+					src='/assets/twitter-icon.svg' // Add a logo asset
+					alt='Twitter Logo'
+					className='header-logo'
+				/>
+			</div>
+			<div className='header-right'>
+				<button
+					className='theme-toggle'
+					onClick={() => toggleTheme()}>
+					{theme}
+				</button>
 			</div>
 		</header>
 	);

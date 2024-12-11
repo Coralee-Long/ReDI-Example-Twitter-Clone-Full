@@ -1,0 +1,19 @@
+.profile {
+  text-align: center;
+  background-color: var(--profile-bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.profile img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+  border: 2px solid var(--accent-color);
+}
+
+.profile h2 {
+  font-size: 20px;
+  margin: 10px 0;
+}

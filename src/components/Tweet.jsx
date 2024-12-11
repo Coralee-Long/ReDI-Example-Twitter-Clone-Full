@@ -1,36 +1,29 @@
-const Tweet = ({ tweet }) => {
-	console.log(tweet?.publishedAt);
-	console.log(tweet);
+import React from 'react';
+import '../styles/Tweet.css';
 
+const Tweet = ({ tweet }) => {
 	return (
-		<li
-			className='tweet-list-item'
-			style={{ display: 'flex', alignItems: 'flex-start', gap: '10px' }}>
-			{/* Avatar */}
+		<div className='tweet'>
 			<img
-				src={tweet.thumbnail || '/gen-avatar.png'} // Default to gen-avatar.png if no avatar is provided
-				alt={`${tweet.name}'s avatar`}
+				src={tweet.thumbnail || '/assets/default-avatar.png'}
+				alt='User Avatar'
 				className='tweet-avatar'
-				style={{
-					width: '50px',
-					height: '50px',
-					borderRadius: '50%',
-					objectFit: 'cover',
-				}}
 			/>
-			{/* Tweet Content */}
-			<div>
+			<div className='tweet-content'>
+				<div className='tweet-header'>
+					<strong>{tweet.name}</strong>
+					<span className='tweet-date'>
+						{new Date(tweet.publishedAt).toLocaleString()}
+					</span>
+				</div>
 				<p>{tweet.content}</p>
-				<small>
-					By {tweet.name} on {new Date(tweet.publishedAt).toLocaleString()}
-				</small>
-				<div className='tweet-buttons-container'>
-					<button>Like 0</button>
+				<div className='tweet-interactions'>
+					<button>Like</button>
 					<button>Retweet</button>
 					<button>Reply</button>
 				</div>
 			</div>
-		</li>
+		</div>
 	);
 };
 

@@ -1,39 +1,122 @@
+/* ----------------- THEMES SET-UP START ----------------- */
+
+/* Default Variables */
+:root {
+	--bg-light: #ffffff;
+	--text-light: #000000;
+	--accent-color-light: #1da1f2;
+	--button-bg-light: #f2f2f2;
+	--button-hover-light: #e6e6e6;
+	--border-color-light: #ddd;
+	--card-bg-light: #f9f9f9;
+	--placeholder-color-light: #aaa;
+	--profile-bg-light: #f9f9f9;
+
+	--bg-dark: #1a1a1a;
+	--text-dark: #e6e6e6;
+	--accent-color-dark: #1da1f2;
+	--button-bg-dark: #2c2f33;
+	--button-hover-dark: #3a3d42;
+	--border-color-dark: rgba(130, 132, 132, 0.5);
+	--card-bg-dark: #2c2c2c;
+	--placeholder-color-dark: #555;
+	--profile-bg-dark: #1a1a1a;
+
+	--font-family: 'Arial', sans-serif;
+}
+
+/* Light Theme */
+.light-theme {
+	--bg-color: var(--bg-light);
+	--text-color: var(--text-light);
+	--accent-color: var(--accent-color-light);
+	--button-bg: var(--button-bg-light);
+	--button-hover: var(--button-hover-light);
+	--border-color: var(--border-color-light);
+	--card-bg: var(--card-bg-light);
+	--placeholder-color: var(--placeholder-color-light);
+	--profile-bg: var(--profile-bg-light);
+}
+
+/* Dark Theme */
+.dark-theme {
+	--bg-color: var(--bg-dark);
+	--text-color: var(--text-dark);
+	--accent-color: var(--accent-color-dark);
+	--button-bg: var(--button-bg-dark);
+	--button-hover: var(--button-hover-dark);
+	--border-color: var(--border-color-dark);
+	--card-bg: var(--card-bg-dark);
+	--placeholder-color: var(--placeholder-color-dark);
+	--profile-bg: var(--profile-bg-dark);
+}
+
+/* ----------------- THEMES SET-UP END ---------------- */
+
+/* App-level styles */
 .app {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	width: 100vw;
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	font-family: var(--font-family);
+	border: 5px solid red; /* Temporary border for visibility */
 }
 
-.app.dark {
-	background-color: #121212;
-	color: white;
+/* Main layout for the app */
+.app-layout {
+	display: flex;
+	flex-direction: row;
+	/* max-width: 1200px; */
+	margin: auto;
+	width: 100vw;
+	/* border: 3px solid white; */
 }
 
-.profile img {
-	border-radius: 50%;
-}
-
-.sidebar {
-	float: left;
-	width: 20%;
-	height: 100vh;
-}
-
-main {
-	margin-left: 21%;
-	padding: 20px;
-}
-
-form {
-	margin-bottom: 20px;
-}
-
-ul {
-	list-style-type: none;
+/* Feed section */
+.main-feed {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--card-bg);
 	padding: 0;
+	/* border: 3px solid lime; */
+	width: 70%;
 }
 
-ul li {
-	background: #f9f9f9;
-	margin-bottom: 10px;
-	padding: 10px;
-	border-radius: 5px;
+/* left sidebar */
+.sidebar {
+	width: 15%;
+	border-right: 1px solid grey;
+
+	/* border: 3px solid yellow; */
+}
+/* Placeholder styling for the right sidebar */
+.right-sidebar {
+	background-color: var(--card-bg);
+	padding: 20px;
+	color: var(--text-color);
+	text-align: center;
+	width: 15%;
+	border-left: 1px solid grey;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+	/* Hide the right sidebar on smaller screens */
+	.right-sidebar {
+		display: none;
+	}
+
+	/* Adjust layout to take up full width */
+	.main-feed {
+		width: 85%; /* Adjusted width to accommodate the missing right sidebar */
+	}
+
+	.sidebar {
+		width: 15%; /* Ensure left sidebar keeps the same width */
+	}
 }

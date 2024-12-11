@@ -1,0 +1,39 @@
+.tweet-input-container {
+	background-color: var(--card-bg);
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+.tweet-input {
+	background-color: var(--bg-color);
+	color: var(--text-color);
+	border: 1px solid var(--border-color);
+	border-radius: 5px;
+	padding: 1rem;
+	resize: none;
+	min-height: 80px;
+}
+
+.tweet-input::placeholder {
+	color: var(--placeholder-color);
+	font-size: 1.2rem;
+	font-family: Arial, sans-serif;
+}
+
+.tweet-button {
+	background-color: var(--accent-color);
+	color: white;
+	border: none;
+	padding: 10px 20px;
+	border-radius: 5px;
+	cursor: pointer;
+	align-self: flex-end;
+	font-weight: bold;
+}
+
+.tweet-button:hover {
+	background-color: #1482c6;
+}
